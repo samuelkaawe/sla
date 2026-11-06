@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<title>PhonePad</title>
+<link rel="stylesheet" href="style.css">
+</head><body>
+<div id="home"><div class="box">
+  <h1>PhonePad</h1>
+  <p class="sub">Use o celular como controle do PC</p>
+  <input id="addr" placeholder="IP do PC (ex.: 192.168.0.10)" inputmode="decimal" autocomplete="off">
+  <button id="bConn" class="pri">Conectar por Wi-Fi</button>
+  <button id="bUsb">Conectar por USB</button>
+  <button id="bEditH">Editar layout</button>
+  <p id="msg"></p>
+</div></div>
+<div id="stage" hidden></div>
+<button id="gear" hidden>⚙</button>
+<div id="toast"></div>
+<div id="edbar" hidden>
+  <div class="row"><select id="eLay"></select><select id="eAdd"><option value="btn">+ Botão</option><option value="stickL">+ Analógico esq.</option><option value="stickR">+ Analógico dir.</option><option value="dpad">+ Direcional</option><option value="wheel">+ Volante</option><option value="pedal">+ Pedal</option></select><button id="eAddB">Adicionar</button><button id="eDone" class="pri">Concluir</button></div>
+  <div id="eSel" class="row" hidden><label>Tamanho <input id="eSize" type="range" min="4" max="80" style="width:110px"></label><input id="eCol" type="color"><input id="eLab" maxlength="6" placeholder="Texto"><select id="eBind"><option>a</option><option>b</option><option>x</option><option>y</option><option>lb</option><option>rb</option><option>lt</option><option>rt</option><option>back</option><option>start</option><option>ls</option><option>rs</option><option>up</option><option>down</option><option>left</option><option>right</option><option>guide</option><option>recenter</option><option>menu</option></select><label><input id="eTouch" type="checkbox">Girar pelo toque</label><button id="eDel">Excluir</button></div>
+</div>
+<div id="panel" hidden><div class="card">
+  <label>Layout <select id="cLay"><option>Gamepad</option></select></label>
+  <div class="row"><button id="bEdit" class="pri">Editar layout</button><button id="bDup">Duplicar</button><button id="bRst">Restaurar padrão</button><button id="bDelL">Excluir</button></div>
+  <label>Sensor do volante <select id="cSrc">
+    <option value="gyro">Giroscópio (qualquer ângulo)</option>
+    <option value="tilt">Inclinação (até 180°)</option>
+    <option value="touch">Toque na tela</option></select></label>
+  <label>Rotação total, batente a batente (graus)
+    <input id="cLock" type="number" inputmode="numeric" min="20" max="7200" step="10"></label>
+  <div class="row"><button data-l="180">180</button><button data-l="360">360</button><button data-l="540">540</button><button data-l="900">900</button><button data-l="1080">1080</button><button data-l="1440">1440</button><button data-l="2160">2160</button></div>
+  <label>Zona morta: <b id="vDead"></b>%<input id="cDead" type="range" min="0" max="30"></label>
+  <label>Curva (1 = linear): <b id="vCurve"></b><input id="cCurve" type="range" min="0.5" max="2" step="0.05"></label>
+  <label>Resistência do volante da tela: <b id="vPull"></b>% (puxa ao centro quando o jogo vibra)<input id="cPull" type="range" min="0" max="100" step="5"></label>
+  <label>Força da vibração do jogo: <b id="vFfb"></b>% (0 desliga)<input id="cFfb" type="range" min="0" max="150" step="5"></label>
+  <label>Tecla volume + (só no app)<select id="cVu"><option value="none">Nenhum</option><option>a</option><option>b</option><option>x</option><option>y</option><option>lb</option><option>rb</option><option>lt</option><option>rt</option><option>back</option><option>start</option><option>ls</option><option>rs</option><option>up</option><option>down</option><option>left</option><option>right</option><option>guide</option><option>recenter</option><option>menu</option></select></label>
+  <label>Tecla volume − (só no app)<select id="cVd"><option value="none">Nenhum</option><option>a</option><option>b</option><option>x</option><option>y</option><option>lb</option><option>rb</option><option>lt</option><option>rt</option><option>back</option><option>start</option><option>ls</option><option>rs</option><option>up</option><option>down</option><option>left</option><option>right</option><option>guide</option><option>recenter</option><option>menu</option></select></label>
+  <label class="chk"><input id="cInv" type="checkbox">Inverter direção</label>
+  <label class="chk"><input id="cFuse" type="checkbox">Corrigir drift com a gravidade</label>
+  <label class="chk"><input id="cAuto" type="checkbox">Voltar ao centro ao soltar (toque)</label>
+  <label class="chk"><input id="cPhys" type="checkbox">Encaminhar controle ligado ao celular</label>
+  <div class="row"><button id="bRec">Centralizar volante</button><button id="bDisc">Desconectar</button><button id="bClose" class="pri">Fechar</button></div>
+</div></div>
+<script src="app.js"></script>
+</body></html>
